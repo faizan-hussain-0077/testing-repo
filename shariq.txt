@@ -1,0 +1,8 @@
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+
+# Create a backup folder with the timestamp
+TARGET_DIR="$BACKUP_DIR/backup_$TIMESTAMP"
+mkdir -p "$TARGET_DIR"
+
+# Logging the backup start time
+echo "Backup started at $(date)" >> "$LOG_FILE"
