@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Define variables
+SOURCE_DIR="/path/to/source"  # Replace with the directory you want to back up
+BACKUP_DIR="/path/to/backup" # Replace with the backup destination
+LOG_FILE="/path/to/backup.log"
+
+# Timestamp for backup folder
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+
+# Create a backup folder with the timestamp
+TARGET_DIR="$BACKUP_DIR/backup_$TIMESTAMP"
+mkdir -p "$TARGET_DIR"
+
+# Logging the backup start time
+echo "Backup started at $(date)" >> "$LOG_FILE"
+
+# Copy files from source to backup directory
+if cp -r "$SOURCE_DIR"/* "$TARGET_DIR";
