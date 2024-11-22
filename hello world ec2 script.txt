@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Update package manager and install Apache
+sudo yum update -y
+sudo yum install httpd -y
+
+# Start Apache service
+sudo systemctl start httpd
+sudo systemctl enable httpd
+
+# Create an HTML file for the Hello World website
+echo "<html>
+<head>
+    <title>Hello World</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+</body>
+</html>" | sudo tee /var/www/html/index.html
+
+# Set appropriate permissions
+sudo chmod 644 /var/www/html/index.html
+
+# Restart Apache service
+sudo systemctl restart httpd
+
+echo "Website setup complete! Visit http://your-instance-public-dns"
